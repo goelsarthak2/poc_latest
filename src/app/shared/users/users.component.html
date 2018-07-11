@@ -1,0 +1,21 @@
+<div class="user-container" >
+  <mat-card class="main-card">
+    <mat-list class="user-list">
+      
+      <a mat-list-item *ngFor="let user of users" [ngClass]="chat-list-item" href="#" disabled (click)="selection()">
+            
+        <img mat-list-avatar  [src]="user.avatar">
+         <mat-icon matListIcon  class="icon">fiber_manual_record</mat-icon>
+        <h3 mat-line class="operator-name">          
+          <b>{{user.name}}</b>        
+        </h3>  
+                   <a mat-mini-fab class="mini-fab" [routerLink]="['/chat',user.name]" disabled style="color:red">
+  <mat-icon>chat_bubble_outline</mat-icon>
+</a>   
+ <a mat-mini-fab class="mini-fab" [routerLink]="['/call',user.name]" style="color:green">
+  <mat-icon>call</mat-icon>
+</a>   
+      </a>  
+    </mat-list>   
+  </mat-card>
+</div>

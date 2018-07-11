@@ -1,0 +1,25 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav (click)="sidenav.toggle()">
+    <mat-nav-list>
+      <a mat-list-item routerLink="users">
+        <mat-icon mat-list-icon>person</mat-icon>
+        <span mat-line>Users</span>
+      </a>            
+    </mat-nav-list>
+  </mat-sidenav>
+  <div>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+      <span>Kandy</span>
+    
+      <button #logout mat-icon-button (click)="Logout()" *ngIf = "showLogout" style="position: absolute; right: 10px">
+        <mat-icon>power_settings_new</mat-icon>
+      </button>   
+    </mat-toolbar>
+    <div class="app-content" >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-sidenav-container>

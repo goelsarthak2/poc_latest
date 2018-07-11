@@ -1,0 +1,30 @@
+<div class="container">
+
+<div id="vremote" ></div>
+<div id="vlocal"></div>
+
+
+<div class="call-container"  *ngIf= "showScreen()" >
+  <mat-card class="main-card">
+    <mat-card-header>
+    <mat-card-title>{{name}}</mat-card-title>
+    <mat-card-subtitle>{{status}}</mat-card-subtitle>
+  </mat-card-header>
+    <div class="call_buttons" *ngIf="!type">
+    <a mat-fab (click)="rejectCall()" style="background-color: red">
+      <mat-icon>call_end</mat-icon>
+    </a>  
+    <a mat-fab  (click)="acceptCall()" style="background-color: limegreen; margin-left:40px">
+      <mat-icon>call</mat-icon>
+    </a>  
+    </div> 
+     <div class="call_buttons" *ngIf="type">
+    <a mat-fab (click)="endCall()" style="background-color: red" fxflex = "70" >
+      <mat-icon>call_end</mat-icon>
+    </a>      
+    </div>  
+  </mat-card>
+</div>
+</div>
+
+

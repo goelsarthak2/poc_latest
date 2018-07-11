@@ -1,0 +1,65 @@
+.call-container {
+    position: fixed;   
+    width: 100%;
+    height:100%;
+}
+
+#vlocal{    
+    width: 10%;
+    float: right;
+}
+
+#vremote{    
+    width: 30%;
+    margin: auto
+}
+
+#vlocal{    
+    width: 10%;
+    float: right;
+}
+
+.container {
+    background-color: white
+}
+
+.mat-card
+{
+    
+    justify-content: space-evenly;
+    display: flex;
+    height: 100%;
+    align-content: center;
+    flex-direction: column;
+
+    box-shadow: none
+}
+.mat-card-header
+{
+    align-self: center;
+
+}
+
+.call_buttons
+{
+    align-self: center;
+}
+
+.mat-card-subtitle
+{
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .mat-card-header
+    {
+            align-self: center;
+
+    }
+
+    .call_buttons
+    {
+        align-self: center;
+    }
+} 
