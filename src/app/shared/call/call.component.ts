@@ -21,6 +21,7 @@ export class CallComponent implements OnInit {
   call: Call;
   fromListOfAct : string ;
   answerCallExist : boolean = false;
+  object: any;
    user: User= {
     name : ''
   }
@@ -36,6 +37,12 @@ export class CallComponent implements OnInit {
  
   ngOnInit() {   
     debugger;
+    this.object = {
+      title : 'Call',
+      userName : this.dataService.user.name,
+      status: true
+    };
+     this.dataService.sendData(this.object);
      this.call = this.dataService.getCall();
      this.name = this._activatedRoute.snapshot.params['name'];
      
@@ -44,6 +51,7 @@ export class CallComponent implements OnInit {
      {
        this._router.navigate(['/users']);
      }
+     this.dataService.sendData(this.object);
      if(this.dataService.getCalls().length != 0 && this._activatedRoute.snapshot.url[0].path == "answerCall")
      {
         this.name = this.dataService.getCalls()[this.dataService.getCalls().length- 1].user.name;

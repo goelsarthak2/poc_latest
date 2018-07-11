@@ -13,16 +13,9 @@ const AVATAR_URL = 'https://api.adorable.io/avatars/285';
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];
-  call: Call;
-  messageContent: string;
-  ioConnection: any; 
-  navigationSubscription: any;
-  defaultDialogUserParams: any = {
-    disableClose: true,
-    data: {
-      title: 'Welcome',
-    }
-  };
+  call: Call; 
+  object: any;
+  navigationSubscription: any; 
 
 
 constructor(private dataService : DataService, private route:ActivatedRoute, private router: Router, private _ngZone: NgZone
@@ -72,7 +65,12 @@ selection()
 }
  
 ngOnInit(): void {
-  debugger;
+  this.object = {
+    title : 'Users',
+    userName : this.dataService.user.name,
+    status: true
+  };
+  this.dataService.sendData(this.object)
   this.getUsers(); 
 }  
 getUsers(){   

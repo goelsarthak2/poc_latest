@@ -43457,6 +43457,7 @@ function WebRtcAdaptorImpl(_ref) {
             });
         } else if (iceConnectionState === 'completed') {
             state = mediaStates.COMPLETED;
+            endCall();
         } else if (iceConnectionState === 'failed') {
             state = mediaStates.FAILED;
             window['CallComponent'].zone.run(() => {
@@ -43465,8 +43466,10 @@ function WebRtcAdaptorImpl(_ref) {
          endCall();         
         } else if (iceConnectionState === 'disconnected') {
             state = mediaStates.DISCONNECTED;
+             endCall();     
         } else if (iceConnectionState === 'closed') {
             state = mediaStates.CLOSED;
+             endCall();     
         } else {
             logger.debug('ICE connection state was not recognized');
         }

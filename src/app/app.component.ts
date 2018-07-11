@@ -14,19 +14,37 @@ export class AppComponent implements OnInit {
   showLogout : boolean;
   subscription: Subscription;
   selectedEmployeeCountRadioButton: string = 'All';
+  name: string = '';
+  pageName : string = 'Login';
+  object: any;
   ngOnInit(): void {  
     this.showLogout = this.dataService.getFormData().loggedIn == true;
   }
 
  constructor(private dataService: DataService, private router: Router) {
   this.subscription = this.dataService.getData().subscribe(x => {
-    this.showLogout = x; 
+    debugger;   
+    this.showLogout = x.status; 
+    this.pageName = x.title;
+    if(x.status == true)
+    {
+      this.name = x.userName;
+    }
+    else
+    {
+      this.name = "";
+    }  
   });
     }
 
-    Logout(){   
+    Logout(){  
+      this.object = {
+          status: false,
+          userName : "",
+          title: "Login"
+      } 
       this.dataService.resetFormData();
-      this.dataService.sendData(false);
+      this.dataService.sendData(this.object);
       this.router.navigate(['/login']);      
     } 
 

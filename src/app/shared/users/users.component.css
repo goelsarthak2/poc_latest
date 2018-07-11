@@ -19,30 +19,28 @@
       color: lawngreen;
   }
   
+ 
   .mat-mini-fab
-  {
-  
+  {  
       background-color: ghostwhite;
       box-shadow: none;
-      top :10px;
-      
+      top :10px;      
   }
+
+  
   .mat-card
   {
-    display: flex;
-     
-  
+    display: flex; 
   }
   
   a.mat-mini-fab{
-  display: inline-block;
-  
+  display: inline-block;  
   }
   
   .mat-list-item:hover .a.mat-mini-fab, .mat-list-item.hover .a.mat-mini-fab {
-      display: inline-block;
-    
+      display: inline-block;    
   }
+
   .mat-list{
        cursor  : pointer;
        width:30vw;
@@ -57,17 +55,12 @@
   @media only screen and (max-width: 768px) {
   
    .mat-list{
-     
-         flex-grow: 1
-      
-      
+         flex-grow: 1  
   }
   } 
   
   @media only screen and (min-width: 768px) {
-   .mat-list{
-      
-     
+   .mat-list{ 
        flex-grow: 0
       
   }

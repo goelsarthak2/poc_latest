@@ -95,7 +95,8 @@ kandy.on('media:error', function(params) {
     logmsg('Call encountered media error: ' + params.error.message);
 });
 
-kandy.on('call:stateChange', function(params) {    
+kandy.on('call:stateChange', function(params) {   
+    debugger; 
     let call = kandy.call.getById(callId);
     logmsg('Call state changed to: ' + params.state);
     let withVideo = true;
@@ -106,11 +107,11 @@ kandy.on('call:stateChange', function(params) {
     {
      if( withVideo == true)
     {
-        document.getElementsByClassName('call-container')[0].style.position = "relative";       
+        document.getElementsByClassName('call-container').length>0 ? document.getElementsByClassName('call-container')[0].style.position = "relative" : '';       
     }
     else
     {
-        document.getElementsByClassName('call-container')[0].style.position = "fixed";
+        document.getElementsByClassName('call-container').length>0 ? document.getElementsByClassName('call-container')[0].style.position = "fixed": '';
     }   
 }
 });

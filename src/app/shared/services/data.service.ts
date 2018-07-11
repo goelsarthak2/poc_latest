@@ -15,8 +15,8 @@ export class DataService {
     }
     private formData: FormData = new FormData();
     private subject = new Subject<any>();
-    sendData(status: boolean) {
-        this.subject.next(status);
+    sendData(object: any) {
+        this.subject.next(object);
     }
  
     clearData() {
@@ -59,14 +59,15 @@ export class DataService {
   getUsers(){  
       debugger;        
     this.users = [];
-    const randomId = this.getRandomId();   
+    //const randomId = this.getRandomId();   
     for(var i =1; i<5; i++)
     {
-        if(this.user.name != "hcl"+ i + "@trials.com")
+        if(this.user.name != "HCL"+ i)
         this.users.push({
             id: randomId,
-            avatar: `${AVATAR_URL}/${randomId}.png`,
-            name: "hcl"+ i + "@trials.com"}
+            //avatar: `${AVATAR_URL}/${randomId}.png`,
+            avatar: '../../../assets/download.png',
+            name: "HCL" + i}
           )
     }   
     this.formData.users = this.users; 

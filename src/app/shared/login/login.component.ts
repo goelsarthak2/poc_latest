@@ -11,7 +11,7 @@ declare var kandy: any;
 export class LoginComponent implements OnInit {
   user : string;
   pass : string;
-
+  object: any;
   constructor(private _router: Router, private dataService : DataService, private _ngZone: NgZone
 ) 
   {
@@ -31,21 +31,30 @@ export class LoginComponent implements OnInit {
    }    
   
   loginFromOutside(connectStatus : boolean)
-  {
+  {    
     debugger;
     if(connectStatus == true)     
     {
+      this.object = {
+        status: true,
+        userName : this.user.trim().toUpperCase()
+      };
       this.dataService.setUser({
-          name: this.user.trim()+"@trials.com"
+          name: this.user.trim().toUpperCase()
       })
       debugger;
       
-      this.dataService.sendData(true);
+      this.dataService.sendData(this.object);
       this._router.navigate(["/users"]);  
     }  
     else
     {
-    this.dataService.sendData(false);
+      this.object = {
+        status: false,
+        userName : "",
+        title: "Login"
+      };
+      this.dataService.sendData(this.object);
     } 
   }
 

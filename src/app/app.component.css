@@ -3,4 +3,14 @@
     height: 100%;
     box-sizing: border-box;
   } 
+
+  .logout{
+  position: absolute; 
+  right: 10px;
+  }
+
+  .name{
+    position: absolute; 
+    right: 60px;
+  }
   

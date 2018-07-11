@@ -12,9 +12,9 @@
       <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-      <span>Kandy</span>
-    
-      <button #logout mat-icon-button (click)="Logout()" *ngIf = "showLogout" style="position: absolute; right: 10px">
+      <span>{{'Kandy - ' + pageName}} </span>
+    <span class="name">{{name}}</span>
+      <button class="logout" mat-icon-button (click)="Logout()" *ngIf = "showLogout" >
         <mat-icon>power_settings_new</mat-icon>
       </button>   
     </mat-toolbar>
