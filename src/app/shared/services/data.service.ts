@@ -59,7 +59,7 @@ export class DataService {
   getUsers(){  
       debugger;        
     this.users = [];
-    //const randomId = this.getRandomId();   
+    const randomId = this.getRandomId();   
     for(var i =1; i<5; i++)
     {
         if(this.user.name != "HCL"+ i)

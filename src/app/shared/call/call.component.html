@@ -1,10 +1,14 @@
-<div class="container">
+<div class="container" style="position:relative;height:100%">
+<div id="vremote" >   
+    <video></video>
+</div>
+<div id="vlocal">
+    <video></video>
+</div>
+<div></div>
 
-<div id="vremote" ></div>
-<div id="vlocal"></div>
 
-
-<div class="call-container"  *ngIf= "showScreen()" >
+<div class="call-container"  *ngIf= "showScreen()" >    
   <mat-card class="main-card">
     <mat-card-header>
     <mat-card-title>{{name}}</mat-card-title>
@@ -24,7 +28,6 @@
     </a>      
     </div>  
   </mat-card>
-</div>
 </div>
 
 

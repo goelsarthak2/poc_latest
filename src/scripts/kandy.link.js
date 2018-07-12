@@ -43453,11 +43453,10 @@ function WebRtcAdaptorImpl(_ref) {
         } else if (iceConnectionState === 'connected') {
             state = mediaStates.CONNECTED;
             window['CallComponent'].zone.run(() => {
-              window['CallComponent'].component.statusChange("IN_CALL"); 
+              window['CallComponent'].component.statusChange("CONNECTED"); 
             });
         } else if (iceConnectionState === 'completed') {
-            state = mediaStates.COMPLETED;
-            endCall();
+            state = mediaStates.COMPLETED;           
         } else if (iceConnectionState === 'failed') {
             state = mediaStates.FAILED;
             window['CallComponent'].zone.run(() => {

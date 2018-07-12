@@ -70,7 +70,7 @@ export class CallComponent implements OnInit {
           this.call.user = this.user;
           this.status = "Calling..";             
           this.dataService.setCall(this.call);            
-          makeCall(this.name);
+          makeCall(this.name.toLowerCase()+ "@trials.com");
      }    
     
    

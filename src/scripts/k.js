@@ -30,12 +30,12 @@ function logmsg(message) {
 
 let callId;
 
-var makeCall = function (name) {    
+var makeCall = function (name) {  
+    debugger;  
     let callee = name;
     let withVideo = true;
     let remoteContainer = document.getElementById('vremote');
-    let localContainer = document.getElementById('vlocal');
-    logmsg('Making call to ' + callee);
+    let localContainer = document.getElementById('vlocal');    
     
     callId = kandy.call.make(callee, {
         sendInitialVideo: withVideo,
@@ -49,12 +49,13 @@ var makeCall = function (name) {
     
 }
 
-let answerCall =function() {   
+let answerCall =function() { 
+    debugger;  
      let withVideo = true;
     let remoteContainer = document.getElementById('vremote');
     let localContainer = document.getElementById('vlocal');
 
-    let call = kandy.call.getById(callId);
+    let call = kandy.call.getById(callId);   
     logmsg('Answering call from ' + call.from);
 
     kandy.call.answer(callId, {
@@ -117,6 +118,7 @@ kandy.on('call:stateChange', function(params) {
 });
 
 kandy.on('call:receive', function(params) {
+    debugger;
     callId = params.callId;   
     call = kandy.call.getById(params.callId);
     logmsg('Received incoming call from ' + call.from);

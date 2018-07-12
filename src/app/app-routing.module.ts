@@ -15,7 +15,6 @@ const routes: Routes = [
   'always'},   
    { path: 'call', component: CallComponent,  canActivate: [AuthGuard] },
    { path: 'call/:name', component: CallComponent,  canActivate: [AuthGuard] },
-   { path: 'call/:name/:fromListOfAct', component: CallComponent,  canActivate: [AuthGuard] }, 
    { path: 'answerCall', component: CallComponent , canActivate: [AuthGuard] },
    { path: 'login', component: LoginComponent,  },
    { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -25,7 +24,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes,{onSameUrlNavigation: 'reload', useHash: true}), 
 ],
-  exports: [RouterModule],
+  exports: [RouterModule],  
   providers: [AuthGuard, AuthService,DataService]
 })
 export class AppRoutingModule { }

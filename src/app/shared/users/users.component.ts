@@ -31,8 +31,9 @@ constructor(private dataService : DataService, private route:ActivatedRoute, pri
 
 navigationReceiveCall(name: string, type: string)
 {
+  debugger;
  var user = {
-    name: name,
+    name: name.substring(0,name.indexOf("@")).toUpperCase(),
   }
   this.call = {
     user : user
