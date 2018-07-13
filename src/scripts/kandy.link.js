@@ -29841,8 +29841,7 @@ function RccControlServiceImpl(_ref) {
             onFailure();
         }, null, sessionRequestDeleteErrorParser);
     };
-    this.makeCall = function (requestData, onSuccess, onFailure) {
-
+    this.makeCall = function (requestData, onSuccess, onFailure) {    
         var urlPostfix,
             data = {
             'rccCallRequest': {

@@ -1,8 +1,9 @@
 .call-container {
     position: relative;   
     width: 100%;
-    height:100%;
+    
 }
+
 
 
 #vremote{  
@@ -82,8 +83,10 @@
     .call_buttons
     {
         align-self: center;
-    }
+    }  
     .call-container{
-        top: 100px
-    }
+        height: 70vh
+        
+          } 
+    
 } 
