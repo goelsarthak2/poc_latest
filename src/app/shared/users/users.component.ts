@@ -64,6 +64,7 @@ selection()
 {
   return false;
 }
+
  
 ngOnInit(): void {
   this.object = {
@@ -74,7 +75,8 @@ ngOnInit(): void {
   this.dataService.sendData(this.object)
   this.getUsers(); 
 }  
-getUsers(){   
+getUsers(){  
+  debugger; 
   this.dataService.getUsers(); 
     this.users = this.dataService.getFormData().users;
 }
@@ -88,6 +90,29 @@ public findAncestor (el) {
   }
   return el.parentElement;
 } 
+
+public userStatusChange(params){
+   debugger;
+   let userName = this.users.find(x=>x.name == params.userId.substring(0,params.userId.indexOf('@')).toUpperCase());
+   if(userName!= null)
+   {
+   if(params.status == "closed")
+   {
+
+    userName.status= "red";
+   }
+   else
+   {
+    userName.status= "green";
+   }
+  }
+  
+}
+
+
+
+
+
 }
 
   

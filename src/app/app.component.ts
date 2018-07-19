@@ -4,6 +4,7 @@ import { FormData } from './shared/model/data';
 import { Router} from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
+declare var userStatusChangeOffline : any;
 @Component({
   selector: 'tcc-root',
   templateUrl: './app.component.html',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
   selectedEmployeeCountRadioButton: string = 'All';
   name: string = '';
   pageName : string = 'Login';
-  object: any;
+  logoutObject: any;
   ngOnInit(): void {  
     this.showLogout = this.dataService.getFormData().loggedIn == true;
   }
@@ -38,13 +39,15 @@ export class AppComponent implements OnInit {
     }
 
     Logout(){  
-      this.object = {
+      debugger;
+      this.logoutObject = {
           status: false,
           userName : "",
           title: "Login"
       } 
       this.dataService.resetFormData();
-      this.dataService.sendData(this.object);
+      userStatusChangeOffline("closed");
+      this.dataService.sendData(this.logoutObject);
       this.router.navigate(['/login']);      
     } 
 

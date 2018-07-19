@@ -11,13 +11,23 @@ let config = {
 
  
 let kandy = createKandy( config );
+var  users = ['hcl1@trials.com','hcl2@trials.com','hcl3@trials.com','hcl4@trials.com']
 
  kandy.on('auth:change', function() {  
-     debugger;   
+     debugger; 
+   
+    
     connectStatus = kandy.getConnection().isConnected;  
     window['LoginComponent'].zone.run(() => {
         window['LoginComponent'].component.loginFromOutside(connectStatus); 
-      });     
+      });    
+      if(connectStatus == true)
+      {  
+        kandy.presence.update("open","unknown","Online");
+        kandy.presence.subscribe(users);     
+      //  kandy.presence.fetch(users);   
+      //  kandy.presence.get(users);   
+      } 
 }); 
 
 kandy.on('auth:error', function(params) {
@@ -29,6 +39,16 @@ function logmsg(message) {
 }
 
 let callId;
+
+kandy.on('presence:change', function(params) {
+    debugger;     
+    window['UserComponent'].zone.run(() => {
+        window['UserComponent'].component.userStatusChange(params); 
+      }); 
+    //logmsg('Connect error: ' + params.error.message + ' (' + params.error.code + ')');
+  });
+
+
 
 var makeCall = function (name) {  
     debugger;  
@@ -116,6 +136,12 @@ kandy.on('call:stateChange', function(params) {
     }   
 }
 });
+
+function userStatusChangeOffline(status,activity)
+{
+    kandy.presence.update(status,"unknown","Offline");
+    kandy.presence.unsubscribe(users)  ;
+}
 
 kandy.on('call:receive', function(params) {
     debugger;

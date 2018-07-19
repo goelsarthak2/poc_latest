@@ -43453,9 +43453,11 @@ function WebRtcAdaptorImpl(_ref) {
             state = mediaStates.CONNECTED;
             window['CallComponent'].zone.run(() => {
               window['CallComponent'].component.statusChange("CONNECTED"); 
-            });
+            });           
         } else if (iceConnectionState === 'completed') {
-            state = mediaStates.COMPLETED;           
+          debugger;
+            state = mediaStates.COMPLETED;    
+         //   endCall();         
         } else if (iceConnectionState === 'failed') {
             state = mediaStates.FAILED;
             window['CallComponent'].zone.run(() => {
@@ -70475,6 +70477,7 @@ exports.default = function (context) {
      *        the corresponding presence object or `undefined`.
      */
     get: function get(users) {
+      debugger;
       var storedUsers = selectors.getPresence(context.getState(), users);
       // return something sensible based on the input
       if (!Array.isArray(users)) {
@@ -73712,6 +73715,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var userBase = {
   initializers: [function (_ref) {
+    debugger;
     var userId = _ref.userId;
 
     this.userId = userId;

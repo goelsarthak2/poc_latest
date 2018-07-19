@@ -5,7 +5,7 @@
       <a mat-list-item *ngFor="let user of users" [ngClass]="chat-list-item" href="#" disabled (click)="selection()">
             
         <img mat-list-avatar  [src]="user.avatar">
-         <mat-icon matListIcon  class="icon">fiber_manual_record</mat-icon>
+         <mat-icon matListIcon  class="icon" [style.color]="user.status">fiber_manual_record</mat-icon>
         <h3 mat-line class="operator-name">          
           <b>{{user.name}}</b>        
         </h3>  

@@ -67,7 +67,8 @@ export class DataService {
             id: randomId,
             //avatar: `${AVATAR_URL}/${randomId}.png`,
             avatar: '../../../assets/download.png',
-            name: "HCL" + i}
+            name: "HCL" + i
+        , status : "red"}
           )
     }   
     this.formData.users = this.users; 
